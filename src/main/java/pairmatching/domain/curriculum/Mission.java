@@ -26,4 +26,8 @@ public enum Mission {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_MISSION_INPUT.getMessage()));
     }
+
+    String getName() {
+        return name;
+    }
 }

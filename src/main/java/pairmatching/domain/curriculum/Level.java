@@ -31,4 +31,17 @@ public enum Level {
             throw new IllegalArgumentException(ErrorMessage.NO_EXIST_MISSION.getMessage());
         }
     }
+
+    public static List<Level> getAllCommands() {
+        return Arrays.asList(Level.values());
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getMissions() {
+        List<String> missionNames = missions.stream().map(Mission::getName).toList();
+        return String.join(" | ", missionNames);
+    }
 }
