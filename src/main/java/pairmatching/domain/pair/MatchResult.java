@@ -33,4 +33,8 @@ public class MatchResult {
     public boolean isExist(final Course course, final Level level, final Mission mission) {
         return this.course == course && this.level == level && this.mission == mission;
     }
+
+    public Pairs getPairs() {
+        return pairs;
+    }
 }

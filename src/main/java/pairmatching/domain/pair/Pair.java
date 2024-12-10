@@ -24,6 +24,10 @@ public class Pair {
         }
     }
 
+    public String getPairName() {
+        return String.join(" : ", pair);
+    }
+
     public Set<String> getPair() {
         return Collections.unmodifiableSet(pair);
     }

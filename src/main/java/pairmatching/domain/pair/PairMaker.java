@@ -3,6 +3,7 @@ package pairmatching.domain.pair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import pairmatching.common.ErrorMessage;
 import pairmatching.config.Initializer;
 import pairmatching.domain.crew.Crews;
 import pairmatching.domain.curriculum.Course;
@@ -81,5 +82,18 @@ public class PairMaker {
         return results.stream()
                 .filter(result -> result.isExist(level))
                 .findFirst();
+    }
+
+    public Pairs findPairs(final Course course, final Level level, final Mission mission) {
+        return results.stream()
+                .filter(matchResult -> matchResult.isExist(course, level, mission))
+                .findFirst()
+                .map(MatchResult::getPairs)
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.NOT_FOUND_RESULT.getMessage()));
+    }
+
+
+    public void initPair() {
+        results.removeAll(results);
     }
 }
