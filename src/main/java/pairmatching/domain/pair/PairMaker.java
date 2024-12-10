@@ -28,6 +28,10 @@ public class PairMaker {
                 .anyMatch(matchResult -> matchResult.isExist(course, level, mission));
     }
 
+    public void deleteOriginPair(final Course course, final Level level, final Mission mission) {
+        results.removeIf(result -> result.isExist(course, level, mission));
+    }
+
     public Pairs generatePair(final Course course, final Level level, final Mission mission) {
         List<String> names = crews.findNameByCourse(course);
         List<String> shuffledNames = shuffle(names, level);
@@ -65,9 +69,11 @@ public class PairMaker {
 
     private List<String> shuffle(final List<String> names, final Level level) {
         List<String> shuffledNames;
+        int repeatCount = 0;
         do {
+            repeatCount++;
             shuffledNames = new ArrayList<>(sequenceGenerator.generate(names));
-        } while (repeatShuffle(names, level));
+        } while (repeatShuffle(names, level) && repeatCount < 3);
         return shuffledNames;
     }
 
@@ -90,10 +96,5 @@ public class PairMaker {
                 .findFirst()
                 .map(MatchResult::getPairs)
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.NOT_FOUND_RESULT.getMessage()));
-    }
-
-
-    public void initPair() {
-        results.removeAll(results);
     }
 }

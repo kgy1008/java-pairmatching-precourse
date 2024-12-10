@@ -64,6 +64,7 @@ public class PairController {
         if (pairMaker.checkExistedPair(course, level, mission)) {
             RematchCommand command = rerunTemplate(inputView::inputRematch);
             if (command == RematchCommand.YES) {
+                pairMaker.deleteOriginPair(course, level, mission);
                 return pairMaker.generatePair(course, level, mission);
             }
         }
