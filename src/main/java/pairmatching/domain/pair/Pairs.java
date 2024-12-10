@@ -2,7 +2,6 @@ package pairmatching.domain.pair;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class Pairs {
 
@@ -12,7 +11,7 @@ public class Pairs {
         this.pairs = pairs;
     }
 
-    boolean checkDuplicated(final Set<String> target) {
+    boolean checkDuplicated(final List<String> target) {
         return pairs.stream()
                 .anyMatch(pair -> pair.getPair().equals(target));
     }

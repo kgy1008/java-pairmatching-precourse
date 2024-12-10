@@ -2,6 +2,7 @@ package pairmatching.domain.curriculum;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import pairmatching.common.ErrorMessage;
 
 public enum Level {
@@ -41,7 +42,7 @@ public enum Level {
     }
 
     public String getMissions() {
-        List<String> missionNames = missions.stream().map(Mission::getName).toList();
+        List<String> missionNames = missions.stream().map(Mission::getName).collect(Collectors.toUnmodifiableList());
         return String.join(" | ", missionNames);
     }
 }

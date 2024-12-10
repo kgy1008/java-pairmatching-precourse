@@ -1,8 +1,6 @@
 package pairmatching.domain.pair;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import pairmatching.domain.curriculum.Course;
 import pairmatching.domain.curriculum.Level;
 import pairmatching.domain.curriculum.Mission;
@@ -22,8 +20,7 @@ public class MatchResult {
     }
 
     public boolean validateDuplicated(final List<String> target) {
-        Set<String> names = new HashSet<>(target);
-        return pairs.checkDuplicated(names);
+        return pairs.checkDuplicated(target);
     }
 
     public boolean isExist(final Level level) {

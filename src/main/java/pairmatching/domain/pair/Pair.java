@@ -1,8 +1,8 @@
 package pairmatching.domain.pair;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import pairmatching.common.ErrorMessage;
 
 public class Pair {
@@ -10,15 +10,15 @@ public class Pair {
     private static final int MIN_SIZE = 2;
     private static final int MAX_SIZE = 3;
 
-    private final Set<String> pair;
+    private final List<String> pair;
 
     public Pair(final String... pairName) {
-        Set<String> pairNames = Set.of(pairName);
+        List<String> pairNames = List.of(pairName);
         validateSize(pairNames);
         this.pair = pairNames;
     }
 
-    private void validateSize(final Set<String> pair) {
+    private void validateSize(final List<String> pair) {
         if (pair.size() < MIN_SIZE || pair.size() > MAX_SIZE) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_PAIR_SIZE.getMessage());
         }
@@ -28,8 +28,8 @@ public class Pair {
         return String.join(" : ", pair);
     }
 
-    public Set<String> getPair() {
-        return Collections.unmodifiableSet(pair);
+    public List<String> getPair() {
+        return Collections.unmodifiableList(pair);
     }
 
     @Override

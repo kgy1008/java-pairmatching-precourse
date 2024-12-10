@@ -35,7 +35,8 @@ public class InputView {
     private void validateCommand(final String command) {
         String[] commandParts = command.split(",");
         Course.from(commandParts[0].trim());
-        Level.from(commandParts[1].trim());
-        Mission.from(commandParts[2].trim());
+        Level level = Level.from(commandParts[1].trim());
+        Mission mission = Mission.from(commandParts[2].trim());
+        Level.validateMission(level, mission);
     }
 }

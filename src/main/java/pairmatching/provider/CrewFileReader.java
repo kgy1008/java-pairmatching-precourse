@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 import pairmatching.common.ErrorMessage;
 import pairmatching.domain.crew.Crew;
 import pairmatching.domain.curriculum.Course;
@@ -34,6 +35,6 @@ public class CrewFileReader {
     private List<Crew> readFileLines(final List<String> lines, final Course course) {
         return lines.stream()
                 .map(line -> new Crew(line, course))
-                .toList();
+                .collect(Collectors.toUnmodifiableList());
     }
 }
