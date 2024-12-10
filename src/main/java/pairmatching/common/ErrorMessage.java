@@ -8,7 +8,8 @@ public enum ErrorMessage {
     INVALID_COURSE_INPUT("잘못된 과정 이름입니다."),
     INVALID_LEVEL_INPUT("잘못된 레벨 이름입니다."),
     INVALID_PAIR_SIZE("페어는 최소 2명에서 최대 3명이어야 합니다."),
-    INVALID_MISSION_INPUT("잘못된 미션 이름입니다.");
+    INVALID_MISSION_INPUT("잘못된 미션 이름입니다."),
+    NO_EXIST_MISSION("해당 레벨에 존재하지 않는 미션입니다.");
 
     private static final String HEADER = "[ERROR] ";
     private final String message;

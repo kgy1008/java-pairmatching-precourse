@@ -25,4 +25,10 @@ public enum Level {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INVALID_LEVEL_INPUT.getMessage()));
     }
+
+    public static void validateMission(final Level level, final Mission mission) {
+        if (!level.missions.contains(mission)) {
+            throw new IllegalArgumentException(ErrorMessage.NO_EXIST_MISSION.getMessage());
+        }
+    }
 }

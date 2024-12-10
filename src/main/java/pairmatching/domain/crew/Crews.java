@@ -11,7 +11,7 @@ public class Crews {
         this.crews = crews;
     }
 
-    public List<String> getName(final Course course) {
+    public List<String> findNameByCourse(final Course course) {
         return crews.stream()
                 .filter(crew -> crew.isEqualCourse(course))
                 .map(Crew::getName)

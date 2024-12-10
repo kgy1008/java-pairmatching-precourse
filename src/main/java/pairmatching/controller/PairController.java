@@ -1,7 +1,7 @@
 package pairmatching.controller;
 
 import java.util.function.Supplier;
-import pairmatching.service.MatchService;
+import pairmatching.domain.pair.PairMaker;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
@@ -9,12 +9,12 @@ public class PairController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final MatchService matchService;
+    private final PairMaker pairMaker;
 
-    public PairController(final InputView inputView, final OutputView outputView, final MatchService matchService) {
+    public PairController(final InputView inputView, final OutputView outputView, final PairMaker pairMaker) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.matchService = matchService;
+        this.pairMaker = pairMaker;
     }
 
     public void run() {
