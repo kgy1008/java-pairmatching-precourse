@@ -97,4 +97,8 @@ public class PairMaker {
                 .map(MatchResult::getPairs)
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.NOT_FOUND_RESULT.getMessage()));
     }
+
+    public void initPair() {
+        results.clear();
+    }
 }
